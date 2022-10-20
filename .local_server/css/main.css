@@ -53,4 +53,6 @@ main .product_search { width: 25%; height: 300px; text-align: center; padding: 1
 
 main .product_search img { height: 80%; }
 
+main .more_products { text-align: center; padding: 15px; font-size: 14px; font-family: sans-serif; cursor: pointer; color: blueviolet; }
+
 /*# sourceMappingURL=main.css.map */

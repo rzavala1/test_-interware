@@ -1,10 +1,5 @@
 const axios = require('axios').default;
-
-
-const SERVER = "http://localhost:";
-const PORT = "3035";
-const API = "/api/v1"
-const URL_SEARCH = SERVER + PORT + API + "/products/search";
+import configReact from '../../../config/template.data';
 
 const CONFIG = {
     headers: {
@@ -14,19 +9,17 @@ const CONFIG = {
 };
 
 const search = (value, callback) => {
-    console.info(URL_SEARCH)
-    axios.get(URL_SEARCH+"/"+value,
+    axios.get(configReact.URL_SEARCH + value,
         CONFIG
     )
         .then(function (response) {
             console.info(response)
-            if(response.status===201) {
+            if (response.status === 201) {
                 callback(response.data);
             }
         })
         .catch(function (error) {
             console.log(error);
-            //fnError(error.response.data.message);
         });
 }
 

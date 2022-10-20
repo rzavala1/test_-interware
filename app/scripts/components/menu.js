@@ -34,10 +34,13 @@ function Menu() {
    */
   const onSearch = (e) => {
     setSearchInput(e.target.value)
-    requests.search(e.target.value,(data)=>{
-      console.info(data)
-      setResults(data);
-    });
+    if (e.target.value !== "") {
+      requests.search(e.target.value, (data) => {
+        setResults(data);
+      });
+    } else {
+      setResults(undefined);
+    }
   }
 
   /**
@@ -86,7 +89,7 @@ function Menu() {
           (showingSearch ? 'showing ' : '') + 'search-container'
         }
       >
-        <input type="text" onChange={(e) => onSearch(e)} value={searchInput}/>
+        <input type="text" onChange={(e) => onSearch(e)} value={searchInput} />
         <a href="#" onClick={(e) => showSearchContainer(e)}>
           <i className="material-icons close">close</i>
         </a>

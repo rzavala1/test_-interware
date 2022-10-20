@@ -8,6 +8,7 @@
 
 module.exports = {
 
-    "title": "Web Starter Template"
+    "title": "Web Starter Template",
+    URL_SEARCH:"http://localhost:3035/api/v1/products/search/",
 
 };
