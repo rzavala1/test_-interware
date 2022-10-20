@@ -18,11 +18,13 @@ import ReactDOM from 'react-dom';
 import Menu from './components/menu';
 import Home from './components/home';
 
+import UserState from "./context/UserState";
+
 
 /**
  * We can start our initial App here in the main.js file
  */
-class App extends React.Component {
+function App() {
 
     /**
      * Renders the default app in the window, we have assigned this to an element called root.
@@ -30,14 +32,14 @@ class App extends React.Component {
      * @returns JSX
      * @memberof App
     */
-    render() {
-        return (
-            <div className="App">
+     return (
+        <div className="App">
+            <UserState>
                 <Menu />
                 <Home />
-            </div>
-        );
-    }
+            </UserState>
+        </div>
+    );
 
 }
 

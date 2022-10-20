@@ -19,10 +19,18 @@
     ]
 }
 */
-const data      = require('./data');
-const http      = require('http');
-const hostname  = 'localhost';
-const port      = 3035;
+//const data = require('./data');
+const express=require('express');
+const app = express();
+const http = require('http');
+
+const hostname = 'localhost';
+const port = 3035;
+const routerApi = require("./routes");
+
+const cors = require('cors');
+app.use(cors());
+
 
 /** 
  * Start the Node Server Here...
@@ -32,13 +40,11 @@ const port      = 3035;
  * The Request object 'req' represents the request to the server.
  * The ServerResponse object 'res' represents the writable stream back to the client.
  */
-http.createServer(function (req, res) {
-    // .. Here you can create your data response in a JSON format
-    
-    
-    res.write("Response goes in here..."); // Write out the default response
-    res.end(); //end the response
-}).listen( port );
+app.use(express.json());
 
+var server = http.createServer(app);
+routerApi(app);
 
-console.log(`[Server running on ${hostname}:${port}]`);
+server.listen(port,()=>{
+    console.log(`[Server running on ${hostname}:${port}]`);
+});

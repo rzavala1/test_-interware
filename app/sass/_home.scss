@@ -13,9 +13,12 @@ section#home {
     background-size: cover;
     background-repeat: no-repeat;
 
-    div.content {
-        max-width: $siteWidth;
-        margin: 0 auto;
-        color: #FFF;
+    div.content {margin: 0 auto;
+        color: #0a0a0a;
+        background-color: #fff;
+        position: fixed;
+        width: 100vw;
+        top: 130px;
+        left: 0px;
     }
 }
